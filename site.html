@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiWork - Serviços Especializados em São Paulo</title>
+    <meta name="description" content="MultiWork oferece serviços especializados de pintura predial, manutenção de telhados, solda e serralheria em São Paulo. Qualidade garantida e preços competitivos.">
+    <meta name="keywords" content="pintura predial, manutenção telhados, solda, serralheria, serviços prediais, São Paulo, MultiWork">
+    <meta name="author" content="MultiWork">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://multiwork.com.br/">
+    <meta property="og:title" content="MultiWork - Serviços Especializados em São Paulo">
+    <meta property="og:description" content="Serviços especializados de pintura predial, manutenção de telhados, solda e serralheria com qualidade garantida.">
+    <meta property="og:image" content="https://multiwork.com.br/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://multiwork.com.br/">
+    <meta property="twitter:title" content="MultiWork - Serviços Especializados em São Paulo">
+    <meta property="twitter:description" content="Serviços especializados de pintura predial, manutenção de telhados, solda e serralheria com qualidade garantida.">
+    <meta property="twitter:image" content="https://multiwork.com.br/images/twitter-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary: #1e40af;
+            --secondary: #f97316;
+            --accent: #059669;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+        .text-accent { color: var(--accent); }
+        .text-success { color: var(--success); }
+        .text-warning { color: var(--warning); }
+        .text-error { color: var(--error); }
+        
+        .bg-primary { background-color: var(--primary); }
+        .bg-secondary { background-color: var(--secondary); }
+        .bg-accent { background-color: var(--accent); }
+        .bg-success { background-color: var(--success); }
+        .bg-warning { background-color: var(--warning); }
+        .bg-error { background-color: var(--error); }
+        
+        .border-primary { border-color: var(--primary); }
+        .border-secondary { border-color: var(--secondary); }
+        .border-accent { border-color: var(--accent); }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-color: var(--accent);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.5);
+        }
+        
+        .whatsapp-float i {
+            margin-top: 16px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(249, 115, 22, 0.9) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 50%, var(--secondary) 100%);
+            border-radius: 2px;
+            margin: 2rem auto;
+            width: 100px;
+        }
+        
+        .price-card {
+            transition: all 0.3s ease;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent);
+        }
+        
+        .price-highlight {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            color: white;
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="smooth-scroll">
+    <!-- Header -->
+    <header class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-primary w-12 h-12 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-tools text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-primary">MultiWork</h1>
+                        <p class="text-sm text-gray-600">Serviços Especializados</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-gray-700 hover:text-accent font-medium transition-colors">Início</a>
+                    <a href="#servicos" class="text-gray-700 hover:text-accent font-medium transition-colors">Serviços</a>
+                    <a href="#precos" class="text-gray-700 hover:text-accent font-medium transition-colors">Preços</a>
+                    <a href="#sobre" class="text-gray-700 hover:text-accent font-medium transition-colors">Sobre</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-accent font-medium transition-colors">Portfolio</a>
+                    <a href="#contato" class="text-gray-700 hover:text-accent font-medium transition-colors">Contato</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#inicio" class="text-gray-700 hover:text-accent font-medium">Início</a>
+                    <a href="#servicos" class="text-gray-700 hover:text-accent font-medium">Serviços</a>
+                    <a href="#precos" class="text-gray-700 hover:text-accent font-medium">Preços</a>
+                    <a href="#sobre" class="text-gray-700 hover:text-accent font-medium">Sobre</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-accent font-medium">Portfolio</a>
+                    <a href="#contato" class="text-gray-700 hover:text-accent font-medium">Contato</a>
+                    <a href="#contato" class="cta-button text-white px-6 py-3 rounded-lg font-semibold text-center">
+                        <i class="fas fa-phone mr-2"></i>
+                        Orçamento Grátis
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-gradient text-white pt-24 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fadeInUp">
+                    <h2 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Serviços <span class="text-secondary">Especializados</span> em São Paulo
+                    </h2>
+                    <p class="text-xl mb-8 text-blue-100">
+                        Pintura predial, manutenção de telhados, solda e serralheria com qualidade garantida. 
+                        Mais de 10 anos transformando espaços com excelência.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contato" class="bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            Solicitar Orçamento
+                        </a>
+                        <a href="#servicos" class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center">
+                            <i class="fas fa-eye mr-3"></i>
+                            Ver Serviços
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="animate-fadeInUp">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6">Por que escolher a MultiWork?</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="bg-secondary w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-award text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Qualidade Garantida</h4>
+                                    <p class="text-blue-100">Materiais premium e mão de obra especializada</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="bg-secondary w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Pontualidade</h4>
+                                    <p class="text-blue-100">Cumprimos prazos e horários acordados</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="bg-secondary w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-shield-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Segurança</h4>
+                                    <p class="text-blue-100">Equipe treinada e equipamentos de proteção</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Nossos Serviços</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Oferecemos soluções completas para manutenção e melhorias do seu patrimônio
+                </p>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pintura Predial -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-roller text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Pintura Predial</h3>
+                    <p class="text-gray-600 mb-6">
+                        Serviços completos de pintura predial com técnicas avançadas e materiais de alta qualidade. 
+                        Renovamos fachadas e interiores com acabamento profissional e garantia de 2 anos.
+                    </p>
+                    <ul class="text-gray-600 mb-6 space-y-2">
+                        <li><i class="fas fa-check text-accent mr-2"></i>Pintura de fachadas e interiores</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Tratamento de infiltrações e umidade</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Aplicação de texturas decorativas</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Tintas premium com proteção UV</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Limpeza e preparação de superfícies</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Garantia de 2 anos nos serviços</li>
+                    </ul>
+                    <a href="#contato" class="cta-button text-white px-6 py-3 rounded-lg font-semibold inline-block">
+                        Solicitar Orçamento
+                    </a>
+                </div>
+                
+                <!-- Manutenção de Telhados -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Manutenção de Telhados</h3>
+                    <p class="text-gray-600 mb-6">
+                        Serviços completos de manutenção e reparo de telhados com equipe especializada em trabalhos em altura. 
+                        Utilizamos materiais de alta qualidade e técnicas modernas de impermeabilização.
+                    </p>
+                    <ul class="text-gray-600 mb-6 space-y-2">
+                        <li><i class="fas fa-check text-accent mr-2"></i>Impermeabilização com manta asfáltica</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Reparo emergencial de goteiras</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Troca e instalação de telhas</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Limpeza e desentupimento de calhas</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Inspeção e manutenção preventiva</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Certificação para trabalhos em altura</li>
+                    </ul>
+                    <a href="#contato" class="cta-button text-white px-6 py-3 rounded-lg font-semibold inline-block">
+                        Solicitar Orçamento
+                    </a>
+                </div>
+                
+                <!-- Solda e Serralheria -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-tools text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Solda e Serralheria</h3>
+                    <p class="text-gray-600 mb-6">
+                        Serviços especializados em soldas e serralheria com soldadores certificados. Fabricação, 
+                        instalação e manutenção de estruturas metálicas com garantia de qualidade e segurança.
+                    </p>
+                    <ul class="text-gray-600 mb-6 space-y-2">
+                        <li><i class="fas fa-check text-accent mr-2"></i>Manutenção e automação de portões</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Reparo e fabricação de grades de segurança</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Soldas MIG, TIG e eletrodo revestido</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Estruturas metálicas sob medida</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Corrimãos e guarda-corpos</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Soldadores certificados e equipamentos profissionais</li>
+                    </ul>
+                    <a href="#contato" class="cta-button text-white px-6 py-3 rounded-lg font-semibold inline-block">
+                        Solicitar Orçamento
+                    </a>
+                </div>
+                
+                <!-- Serviços Prediais Gerais -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-building text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Serviços Prediais Gerais</h3>
+                    <p class="text-gray-600 mb-6">
+                        Soluções completas em manutenção predial com equipe multidisciplinar. Reformas, reparos 
+                        e conservação para manter seu patrimônio sempre em perfeitas condições.
+                    </p>
+                    <ul class="text-gray-600 mb-6 space-y-2">
+                        <li><i class="fas fa-check text-accent mr-2"></i>Reformas de apartamentos e escritórios</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Reparos hidráulicos e instalações</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Manutenção elétrica e automação</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Conservação e limpeza especializada</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Jardinagem e paisagismo</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Contratos de manutenção preventiva</li>
+                    </ul>
+                    <a href="#contato" class="cta-button text-white px-6 py-3 rounded-lg font-semibold inline-block">
+                        Solicitar Orçamento
+                    </a>
+                </div>
+                
+                <!-- Comunicação Visual -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Comunicação Visual</h3>
+                    <p class="text-gray-600 mb-6">
+                        Desenvolvimento completo de identidade visual corporativa com materiais de alta qualidade. 
+                        Criação, produção e instalação de soluções visuais impactantes.
+                    </p>
+                    <ul class="text-gray-600 mb-6 space-y-2">
+                        <li><i class="fas fa-check text-accent mr-2"></i>Fachadas comerciais em ACM e acrílico</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Placas, letreiros e totens luminosos</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Banners, adesivos e impressão digital</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Sinalização predial e de segurança</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Envelopamento de veículos</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Projeto gráfico e instalação completa</li>
+                    </ul>
+                    <a href="#contato" class="cta-button text-white px-6 py-3 rounded-lg font-semibold inline-block">
+                        Solicitar Orçamento
+                    </a>
+                </div>
+                
+                <!-- Emergência 24h -->
+                <div class="service-card bg-red-50 border-2 border-red-200 rounded-2xl p-8 shadow-xl">
+                    <div class="bg-red-500 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-exclamation-triangle text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-red-500 mb-4">Emergência 24h</h3>
+                    <p class="text-gray-600 mb-6">
+                        Serviço de emergência com resposta rápida e equipe técnica especializada. Atendimento 
+                        24 horas para resolver problemas urgentes que não podem esperar.
+                    </p>
+                    <ul class="text-gray-600 mb-6 space-y-2">
+                        <li><i class="fas fa-check text-red-500 mr-2"></i>Vazamentos e infiltrações urgentes</li>
+                        <li><i class="fas fa-check text-red-500 mr-2"></i>Problemas elétricos e curto-circuitos</li>
+                        <li><i class="fas fa-check text-red-500 mr-2"></i>Reparos emergenciais em telhados</li>
+                        <li><i class="fas fa-check text-red-500 mr-2"></i>Destravamento de portões e fechaduras</li>
+                        <li><i class="fas fa-check text-red-500 mr-2"></i>Atendimento em até 2 horas</li>
+                        <li><i class="fas fa-check text-red-500 mr-2"></i>Equipe técnica qualificada e equipada</li>
+                    </ul>
+                    <a href="tel:+5511999999999" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-semibold inline-block transition-all">
+                        <i class="fas fa-phone mr-2"></i>
+                        Ligar Agora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="precos" class="py-20 bg-gradient-to-br from-blue-50 to-orange-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Tabela de Preços</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Preços competitivos e transparentes para todos os nossos serviços especializados
+                </p>
+                <div class="bg-accent text-white px-6 py-2 rounded-full inline-block mt-4">
+                    <i class="fas fa-star mr-2"></i>
+                    Orçamentos Gratuitos
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Pintura Predial -->
+                <div class="price-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="text-center mb-6">
+                        <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-paint-roller text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-2">Pintura Predial</h3>
+                        <div class="text-3xl font-bold text-accent">R$ 45-120<span class="text-lg text-gray-600">/m²</span></div>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-accent mr-2"></i>Limpeza de fachada: R$ 45/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Pintura simples: R$ 80/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Restauração completa: R$ 120/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Materiais inclusos</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Garantia de 2 anos</li>
+                    </ul>
+                </div>
+                
+                <!-- Manutenção de Telhados -->
+                <div class="price-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="text-center mb-6">
+                        <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-home text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-2">Manutenção de Telhados</h3>
+                        <div class="text-3xl font-bold text-accent">R$ 80-150<span class="text-lg text-gray-600">/m²</span></div>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-accent mr-2"></i>Reparo de goteiras: R$ 80/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Impermeabilização: R$ 120/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Troca de telhas: R$ 150/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Mão de obra especializada</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Certificação para trabalhos em altura</li>
+                    </ul>
+                </div>
+                
+                <!-- Solda e Serralheria -->
+                <div class="price-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="text-center mb-6">
+                        <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-tools text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-2">Solda e Serralheria</h3>
+                        <div class="text-3xl font-bold text-accent">R$ 120-300<span class="text-lg text-gray-600">/m²</span></div>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-accent mr-2"></i>Reparo de portões: R$ 120/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Grades de segurança: R$ 200/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Estruturas sob medida: R$ 300/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Soldadores certificados</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Materiais de qualidade</li>
+                    </ul>
+                </div>
+                
+                <!-- Serviços Prediais Gerais -->
+                <div class="price-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="text-center mb-6">
+                        <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-building text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-2">Serviços Prediais</h3>
+                        <div class="text-3xl font-bold text-accent">R$ 50-200<span class="text-lg text-gray-600">/m²</span></div>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-accent mr-2"></i>Reparos hidráulicos: R$ 50/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Manutenção elétrica: R$ 80/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Reformas completas: R$ 200/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Equipe multidisciplinar</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Contratos de manutenção</li>
+                    </ul>
+                </div>
+                
+                <!-- Comunicação Visual -->
+                <div class="price-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="text-center mb-6">
+                        <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-palette text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-2">Comunicação Visual</h3>
+                        <div class="text-3xl font-bold text-accent">R$ 150-800<span class="text-lg text-gray-600">/m²</span></div>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-accent mr-2"></i>Placas e letreiros: R$ 150/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Fachadas ACM: R$ 400/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Totens luminosos: R$ 800/m²</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Projeto gráfico incluso</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i>Instalação completa</li>
+                    </ul>
+                </div>
+                
+                <!-- Emergência 24h -->
+                <div class="price-card bg-red-50 border-2 border-red-200 rounded-2xl p-8 shadow-xl">
+                    <div class="text-center mb-6">
+                        <div class="bg-red-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-exclamation-triangle text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-red-500 mb-2">Emergência 24h</h3>
+                        <div class="text-3xl font-bold text-red-500">R$ 200-500<span class="text-lg text-gray-600">/atendimento</span></div>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-red-500 mr-2"></i>Taxa de atendimento: R$ 200</li>
+                        <li><i class="fas fa-check text-red-500 mr-2"></i>Reparos emergenciais: R$ 300</li>
+                        <li><i class="fas fa-check text-red-500 mr-2"></i>Serviços complexos: R$ 500</li>
+                        <li><i class="fas fa-check text-red-500 mr-2"></i>Atendimento em 2h</li>
+                        <li><i class="fas fa-check text-red-500 mr-2"></i>Disponível 24/7</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Informações Adicionais -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl">
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="bg-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-calculator text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-primary mb-2">Orçamento Gratuito</h4>
+                        <p class="text-gray-600">Avaliação sem compromisso e orçamento detalhado para seu projeto</p>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-secondary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-percentage text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-primary mb-2">Descontos Especiais</h4>
+                        <p class="text-gray-600">Até 15% de desconto para contratos anuais e projetos grandes</p>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-success w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-credit-card text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-primary mb-2">Facilidades de Pagamento</h4>
+                        <p class="text-gray-600">Parcelamento em até 12x no cartão ou condições especiais à vista</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-primary mb-6">Sobre a MultiWork</h2>
+                    <p class="text-xl text-gray-600 mb-6">
+                        Com mais de 10 anos de experiência no mercado, a MultiWork se consolidou como referência 
+                        em serviços especializados em São Paulo. Nossa missão é transformar espaços com qualidade, 
+                        segurança e pontualidade.
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        Contamos com uma equipe de profissionais altamente qualificados, equipamentos modernos 
+                        e materiais de primeira linha. Cada projeto é executado com atenção aos detalhes e 
+                        compromisso com a excelência.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="stats-counter">500+</div>
+                            <p class="text-gray-600 font-medium">Projetos Concluídos</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter">10+</div>
+                            <p class="text-gray-600 font-medium">Anos de Experiência</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter">98%</div>
+                            <p class="text-gray-600 font-medium">Clientes Satisfeitos</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter">24h</div>
+                            <p class="text-gray-600 font-medium">Suporte Emergencial</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Nossos Diferenciais</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-accent w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-certificate text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-2">Certificações e Qualificações</h4>
+                                <p class="text-gray-600">Equipe certificada para trabalhos em altura, soldadores qualificados e responsável técnico registrado no CREA.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-secondary w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-tools text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-2">Equipamentos Modernos</h4>
+                                <p class="text-gray-600">Investimos constantemente em tecnologia e equipamentos para garantir a melhor qualidade.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-success w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-handshake text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-2">Relacionamento Duradouro</h4>
+                                <p class="text-gray-600">Construímos parcerias sólidas com nossos clientes, oferecendo suporte contínuo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">O que nossos clientes dizem</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A satisfação dos nossos clientes é nossa maior conquista
+                </p>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-accent w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary">Maria Silva</h4>
+                            <p class="text-gray-600">Síndica - Edifício Residencial</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Excelente trabalho na pintura da fachada do nosso prédio. Equipe pontual, 
+                        materiais de qualidade e preço justo. Recomendo!"
+                    </p>
+                </div>
+                
+                <div class="testimonial-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-secondary w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary">João Santos</h4>
+                            <p class="text-gray-600">Proprietário - Casa Residencial</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Resolveram o problema de goteira no meu telhado rapidamente. 
+                        Profissionais competentes e serviço com garantia."
+                    </p>
+                </div>
+                
+                <div class="testimonial-card bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-success w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary">Ana Costa</h4>
+                            <p class="text-gray-600">Gerente - Empresa Comercial</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Fizeram a fachada da nossa empresa com comunicação visual moderna. 
+                        Resultado superou nossas expectativas!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-20 hero-gradient text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Entre em Contato</h2>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    Solicite seu orçamento gratuito e transforme seu espaço com a MultiWork
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Informações de Contato</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="bg-secondary w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Telefone</h4>
+                                <p class="text-blue-100">(11) 99999-9999</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-secondary w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">E-mail</h4>
+                                <p class="text-blue-100">contato@multiwork.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-secondary w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Endereço</h4>
+                                <p class="text-blue-100">São Paulo - SP<br>Atendemos toda a Grande São Paulo</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-secondary w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Horário de Atendimento</h4>
+                                <p class="text-blue-100">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h<br>Emergências: 24h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Solicite seu Orçamento</h3>
+                    
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Nome</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-secondary" placeholder="Seu nome">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Telefone</label>
+                                <input type="tel" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-secondary" placeholder="(11) 99999-9999">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">E-mail</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-secondary" placeholder="seu@email.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Serviço de Interesse</label>
+                            <select class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white focus:outline-none focus:ring-2 focus:ring-secondary">
+                                <option value="">Selecione um serviço</option>
+                                <option value="pintura">Pintura Predial</option>
+                                <option value="telhado">Manutenção de Telhados</option>
+                                <option value="solda">Solda e Serralheria</option>
+                                <option value="predial">Serviços Prediais Gerais</option>
+                                <option value="visual">Comunicação Visual</option>
+                                <option value="emergencia">Emergência 24h</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Mensagem</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-secondary" placeholder="Descreva seu projeto ou necessidade"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Enviar Solicitação
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="bg-primary w-12 h-12 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-tools text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">MultiWork</h3>
+                            <p class="text-gray-400">Serviços Especializados</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Transformando espaços com qualidade, segurança e pontualidade há mais de 10 anos.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Serviços</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#servicos" class="hover:text-secondary transition-colors">Pintura Predial</a></li>
+                        <li><a href="#servicos" class="hover:text-secondary transition-colors">Manutenção de Telhados</a></li>
+                        <li><a href="#servicos" class="hover:text-secondary transition-colors">Solda e Serralheria</a></li>
+                        <li><a href="#servicos" class="hover:text-secondary transition-colors">Serviços Prediais</a></li>
+                        <li><a href="#servicos" class="hover:text-secondary transition-colors">Comunicação Visual</a></li>
+                        <li><a href="#servicos" class="hover:text-secondary transition-colors">Emergência 24h</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2"></i>(11) 99999-9999</li>
+                        <li><i class="fas fa-envelope mr-2"></i>contato@multiwork.com.br</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>São Paulo - SP</li>
+                        <li><i class="fas fa-clock mr-2"></i>Seg-Sex: 8h-18h</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Links Úteis</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#precos" class="hover:text-secondary transition-colors">Tabela de Preços</a></li>
+                        <li><a href="#sobre" class="hover:text-secondary transition-colors">Sobre Nós</a></li>
+                        <li><a href="#contato" class="hover:text-secondary transition-colors">Orçamento Grátis</a></li>
+                        <li><a href="tel:+5511999999999" class="hover:text-secondary transition-colors">Emergência 24h</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 MultiWork - Serviços Especializados. Todos os direitos reservados.</p>
+                <p class="mt-2">CNPJ: 00.000.000/0001-00 | Responsável Técnico: Eng. João Silva - CREA/SP 123456</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5511999999999?text=Olá! Gostaria de solicitar um orçamento." target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form Submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado! Entraremos em contato em breve.');
+        });
+
+        // Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards and other elements
+        document.querySelectorAll('.service-card, .testimonial-card, .price-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Stats Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stats-counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/[^0-9]/g, ''));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = counter.textContent.replace(/[0-9]+/, target);
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = counter.textContent.replace(/[0-9]+/, Math.floor(current));
+                    }
+                }, 20);
+            });
+        }
+
+        // Trigger counter animation when about section is visible
+        const aboutSection = document.getElementById('sobre');
+        const aboutObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    aboutObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        if (aboutSection) {
+            aboutObserver.observe(aboutSection);
+        }
+    </script>
+</body>
+</html>
